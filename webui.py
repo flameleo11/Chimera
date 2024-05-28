@@ -16,7 +16,10 @@ from chimera.core import NovelChunk, Scene, Frame, Character, KeyObject
 URL = "https://oneapi.yuntu.chat/v1"
 KEY = "sk-3CjP51UPhnB5WZv33cF3D4Df98E14eA18dCc1bD5E6B58d5d"
 model_options = [m.id for m in openai.OpenAI(api_key=KEY, base_url=URL).models.list().data]
-default_index = model_options.index("gpt-4o") if "gpt-4o" in model_options else 0
+if !default_index:
+    default_index = model_options.index("gpt-4o") if "gpt-4o" in model_options else 0
+    pass
+    
 st.write("### 提取小说结构化信息")
 st.write("prompt参照：https://smith.langchain.com/prompts/extract-scenes-from-novel-system?organizationId=951d1030-1685-5ba0-bdfd-d516f2214386")
 
